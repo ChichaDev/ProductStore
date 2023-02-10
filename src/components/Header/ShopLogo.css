@@ -1,0 +1,13 @@
+.ShopLogo {
+  margin-left: 3%;
+}
+.ShopLogo img {
+  height: 70px;
+  width: 100px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+.ShopLogo img:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}

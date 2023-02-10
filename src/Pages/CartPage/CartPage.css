@@ -1,0 +1,48 @@
+/* .wrapper {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../../assets/background-cart.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment:fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  width: 100%;
+  min-height: 545px;
+  /* border: 1px solid black; */
+  background-image: url("../../assets/background-cart.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.CartBlock {
+background-color: whitesmoke;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+flex-direction: column;
+gap: 10px;
+/* border: 1px solid red; */
+width: 600px;
+min-height: 180px;
+
+
+}
+
+.totalPrice {
+  /* border: 1px solid yellow; */
+  margin-top: 10px;
+  height: 30px;
+  width: 550px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+}
