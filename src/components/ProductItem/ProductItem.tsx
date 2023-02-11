@@ -2,6 +2,7 @@ import "../ProductItem/ProductItem.css"
 import ShoppingCartIcon from "../../assets/shopping_cart_icon.png";
 import FavoriteIcon from "../../assets/favorite_icon.png";
 import PreviewIcon from "../../assets/search_icon.png";
+
 export const ProductItem = () => {
 
   return (
