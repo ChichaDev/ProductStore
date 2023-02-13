@@ -5,13 +5,14 @@ export const Filter = () => {
     <div className="Filter">
       <div className="dropdown">
         <button className="dropbtn">
-          Выбрать категорию
+          All
         </button>
         <div className="dropdown-content show">
-          <span>men's clothing</span>
-          <span>women's clothing</span>
-          <span>jewelery</span>
-          <span>electronics</span>
+          <span>All</span>
+          <span>Men's clothing</span>
+          <span>Women's clothing</span>
+          <span>Jewelery</span>
+          <span>Electronics</span>
           
         </div>
       </div>

@@ -3,7 +3,6 @@ import { SearchAndFilter } from "../../components/SearchAndFilter/SearchAndFilte
 import "../StorePage/StorePage.css"
 
 export const StorePage = () => {
-
   return (
     <>
       <SearchAndFilter/>

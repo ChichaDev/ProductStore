@@ -40,13 +40,19 @@
   align-items: center;
 }
 .Product-card__title {
-  margin-top: 0;
+  margin-top: 5px;
   max-width: 300px;
-  max-height: 50px;
+  height: 46px;
   /* border: 1px solid blue; */
   text-align: center;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 4; 
+  -webkit-box-orient: vertical;
   font-size: 18px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .Product-card__price {
+  margin-top: 15px;
 }
