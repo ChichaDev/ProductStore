@@ -1,10 +1,13 @@
+import { Product } from "types"
 import "../RecommendItem/RecommendItem.css"
 
-export const RecommendItem = () => {
+type RecommendItemProps = Pick<Product, "image" | "title">
+
+export const RecommendItem = ({image, title}: RecommendItemProps) => {
 
   return (
     <div className="ProductContainer__recommendations__container__card">
-    <img src="https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg" alt=""/>
+    <img src={image} alt={title}/>
 </div>
   )
 }

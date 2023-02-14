@@ -9,7 +9,7 @@
 .ProductContainer__recommendations__container__card img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 .ProductContainer__recommendations__container__card img:hover {
 cursor: pointer;

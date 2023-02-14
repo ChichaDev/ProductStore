@@ -6,6 +6,7 @@ export type Product = {
   price: number,
   category: Category,
   image: string,
+  description: string,
   rating?: {
     rate: number,
     count: number
