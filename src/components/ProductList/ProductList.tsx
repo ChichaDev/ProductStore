@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { selectAsyncProducts } from "redux/asyncProductsSelector";
-import { fetchAllProducts } from "redux/productsAsyncActions";
+import { selectAsyncProducts } from "redux/AsyncProductsList/asyncProductsSelector";
+import { fetchAllProducts } from "redux/AsyncProductsList/productsAsyncActions";
 import { useAppDispatch } from "redux/redux-hooks";
-import { ProductItem } from "../ProductItem/ProductItem";
+import { ProductListItem } from "../ProductListItem/ProductListItem";
 import "../ProductList/ProductList.css";
 
 export const ProductList = () => {
@@ -18,7 +18,7 @@ export const ProductList = () => {
   return (
     <div className="Product-container">
       {productList.map((item) => (
-        <ProductItem key={item.id} {...item} />
+        <ProductListItem key={item.id} {...item} />
       ))}
     </div>
   );

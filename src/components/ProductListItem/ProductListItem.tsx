@@ -1,4 +1,4 @@
-import "../ProductItem/ProductItem.css"
+import "./ProductListItem.css"
 import ShoppingCartIcon from "../../assets/shopping_cart_icon.png";
 import FavoriteIcon from "../../assets/favorite_icon.png";
 import PreviewIcon from "../../assets/search_icon.png";
@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 
 
 
-type ProductItemProps = Pick<Product, 
+type ProductListItemProps = Pick<Product, 
 "image" | "price" | "title" | "id">
 
 
-export const ProductItem = ({image,price,title, id}:ProductItemProps) => {
+export const ProductListItem = ({image,price,title, id}:ProductListItemProps) => {
   
   return (
     <div className="Product-card">

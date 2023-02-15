@@ -1,6 +1,6 @@
 import "../ProductPage/ProductPage.css";
 import { RecommendItem } from "../../components/RecommendItem/RecommendItem";
-import { selectAsyncProducts } from "redux/asyncProductsSelector";
+import { selectAsyncProducts } from "redux/AsyncProductsList/asyncProductsSelector";
 import { selectAsyncProductPage } from "redux/AsyncProductPage/asyncProductPageSelector";
 import { useSelector } from "react-redux";
 import { ProductPageItem } from "components/ProductPageItem/ProductPageItem";

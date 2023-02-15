@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Product } from "types";
-import { fetchAllProducts } from "./productsAsyncActions";
+import { fetchAllProducts, fetchCategoryProduct } from "./productsAsyncActions";
 
 type productSlice = {
   status: "idle" | "loading" | "resolved " | "rejected",
@@ -27,6 +27,10 @@ const productSlice = createSlice({
     })
     .addCase(fetchAllProducts.rejected, (state) => {
       state.status = "rejected"
+    })
+    .addCase(fetchCategoryProduct.fulfilled, (state, action) =>{
+      state.status = "resolved ";
+      state.productList = action.payload
     })
     
   }

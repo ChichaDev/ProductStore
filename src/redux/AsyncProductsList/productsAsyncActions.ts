@@ -10,3 +10,11 @@ export const fetchAllProducts = createAsyncThunk(
   }
 
 )
+
+export const fetchCategoryProduct = createAsyncThunk(
+  "products/fetchCategory",
+  async (category: string) => {
+    const response = await fetch(`https://fakestoreapi.com/products/category/${category}`)
+    return (await response.json()) as Product[]
+  }
+)
