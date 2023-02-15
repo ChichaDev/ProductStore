@@ -8,8 +8,11 @@ import {
 } from "redux/AsyncProductsList/productsAsyncActions";
 import { fetchAllCategories } from "redux/AsyncFilter/asyncFilterActions";
 import { selectAsyncCategories } from "redux/AsyncFilter/asyncFilterSelector";
+import { useClickOutside } from "hooks/useClickOutside";
 
 export const Filter = () => {
+  const filterRef = useRef<HTMLDivElement | null>(null);
+  useClickOutside(filterRef, () => setOpenDropdown(false));
   const [openDropdown, setOpenDropdown] = useState(false);
   const onClickDropdown = () => {
     setOpenDropdown(!openDropdown);
@@ -36,7 +39,7 @@ export const Filter = () => {
     setCurrentCategory("All");
   };
   return (
-    <div className="Filter">
+    <div className="Filter" ref={filterRef}>
       <div className="dropdown">
         <button onClick={onClickDropdown} className="dropbtn">
           {currentCategory}
