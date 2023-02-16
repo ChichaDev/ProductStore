@@ -15,7 +15,13 @@ const initialState: productSlice = {
 const productSlice = createSlice({
   name: "@products",
   initialState,
-  reducers: {},
+  reducers: {
+    searchProductList(state, action){
+      state.productList = state.productList.filter((item)=>
+      item.title.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase()))
+
+    }
+  },
   extraReducers: (builder) => {
     builder
     .addCase(fetchAllProducts.pending, (state) => {
@@ -35,5 +41,7 @@ const productSlice = createSlice({
     
   }
 });
+export const { searchProductList } =
+productSlice.actions;
 
 export default productSlice.reducer
