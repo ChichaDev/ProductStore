@@ -46,3 +46,23 @@ min-height: 180px;
   flex-direction: row;
   justify-content: flex-end;
 }
+.clearCart {
+  margin-top: 10px;
+  height: 30px;
+  width: 550px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.clearCart span {
+ font-weight: bold;
+}
+.clearCart span:hover {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid red;
+  background-color: red;
+  color: black
+}

@@ -15,7 +15,7 @@
   .Product-img img {
   height: 90px;
   width: 90px;
-  /* object-fit: cover; */
+  object-fit: contain;
   }
   .Product-title {
     /* border: 1px solid blue; */

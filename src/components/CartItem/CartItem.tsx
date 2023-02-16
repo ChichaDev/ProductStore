@@ -1,22 +1,29 @@
+import { useAppDispatch } from "redux/redux-hooks";
+import { Product } from "types";
 import "../CartItem/CartItem.css";
+import { removeFromCart } from "redux/Cart/cartSlice";
 
-export const CartItem = () => {
+type CartItemProps = Pick<Product, "image" | "title" | "price" | "id">;
+
+export const CartItem = ({ image, price, title, id }: CartItemProps) => {
+  const dispatch = useAppDispatch();
+
+  const handleRemoveFromCart = () => {
+    dispatch(removeFromCart(id));
+  };
+
   return (
     <div className="ProductBlock">
       <div className="Product-img">
-        <img
-          src="https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg"
-          alt=""
-        />
+        <img src={image} alt={title} />
       </div>
-
       <div className="Product-title">
-        <span>
-          Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin
-        </span>
+        <span>{title}</span>
       </div>
-      <span>1235 грн</span>
-      <div className="delete">&#10007;</div>
+      <span>{price} грн</span>
+      <div onClick={handleRemoveFromCart} className="delete">
+        &#10007;
+      </div>
     </div>
   );
 };
