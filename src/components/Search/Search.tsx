@@ -2,19 +2,12 @@ import "../Search/Search.css";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "redux/redux-hooks";
 import { searchProductList } from "redux/AsyncProductsList/asyncProductSlice";
-import { fetchAllProducts } from "redux/AsyncProductsList/productsAsyncActions";
-
-type FormFields = {
-  username: HTMLInputElement;
-};
 
 export const Search = () => {
   const dispatch = useAppDispatch();
 
   const [textInput, setTextInput] = useState("");
-  const onChangeTextInput = (
-    event: React.ChangeEvent<HTMLInputElement & FormFields>
-  ) => {
+  const onChangeTextInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     setTextInput(event.target.value);
   };
@@ -23,9 +16,8 @@ export const Search = () => {
   }, [textInput, dispatch]);
 
   const onClickReset = () => {
-    dispatch(fetchAllProducts())
-    setTextInput("")
-  }
+    setTextInput("");
+  };
   return (
     <form autoComplete="off" className="search" action="">
       <input
@@ -36,7 +28,6 @@ export const Search = () => {
         maxLength={12}
       />
       <button onClick={onClickReset}> Reset</button>
-      
     </form>
   );
 };
