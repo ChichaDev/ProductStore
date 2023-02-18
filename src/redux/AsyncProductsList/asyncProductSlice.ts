@@ -9,7 +9,7 @@ type productSlice = {
 
 const initialState: productSlice = {
   status: "idle",
-  productList: []
+  productList: [],
 }
 
 const productSlice = createSlice({
@@ -34,9 +34,17 @@ const productSlice = createSlice({
     .addCase(fetchAllProducts.rejected, (state) => {
       state.status = "rejected"
     })
+
+    .addCase(fetchCategoryProduct.pending, (state) =>{
+      state.status = "resolved ";
+    })
     .addCase(fetchCategoryProduct.fulfilled, (state, action) =>{
       state.status = "resolved ";
       state.productList = action.payload
+    })
+    .addCase(fetchCategoryProduct.rejected, (state) =>{
+      state.status = "rejected"
+      
     })
     
   }

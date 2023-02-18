@@ -1,11 +1,14 @@
 import "./ProductListItem.css";
 import ShoppingCartIcon from "../../assets/shopping_cart_icon.png";
+import CartAdded from "assets/cart_added.png";
 import FavoriteIcon from "../../assets/favorite_icon.png";
 import PreviewIcon from "../../assets/search_icon.png";
 import { Product } from "types";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "redux/redux-hooks";
-import { addToCart } from "redux/Cart/cartSlice";
+import { addToCart, removeFromCart } from "redux/Cart/cartSlice";
+import { selectCart } from "redux/Cart/cartSelector";
+import { useSelector } from "react-redux";
 
 type ProductListItemProps = Pick<Product, "image" | "price" | "title" | "id">;
 
@@ -17,8 +20,17 @@ export const ProductListItem = ({
 }: ProductListItemProps) => {
   const dispatch = useAppDispatch();
 
+  const {cartList} = useSelector(selectCart)
+
+  const isProductInCart = cartList.some((product) => product.id === id)
+
   const handleAddToCart = () => {
-    dispatch(addToCart({ image, price, title, id }));
+    if(isProductInCart){
+      dispatch(removeFromCart(id))
+    } else {
+      dispatch(addToCart({ image, price, title, id }));
+    }
+    
   };
   return (
     <div className="Product-card">
@@ -28,7 +40,7 @@ export const ProductListItem = ({
       <div className="Product-card__actions">
         <img
           onClick={handleAddToCart}
-          src={ShoppingCartIcon}
+          src={isProductInCart? CartAdded : ShoppingCartIcon}
           alt=""
           className="CartIcon"
         />

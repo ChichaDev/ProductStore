@@ -1,10 +1,15 @@
 import "../ProductPageItem/ProductPageItem.css";
 import CartIcon from "assets/shopping_cart_icon.png";
 import { Product } from "types";
+import CartAdded from "assets/cart_added.png";
+import { useAppDispatch } from "redux/redux-hooks";
+import { addToCart, removeFromCart } from "redux/Cart/cartSlice";
+import { selectCart } from "redux/Cart/cartSelector";
+import { useSelector } from "react-redux";
 
 type ProductPageItemProps = Pick<
   Product,
-  "image" | "price" | "title" | "description"
+  "image" | "price" | "title" | "description" | "id"
 >;
 
 export const ProductPageItem = ({
@@ -12,7 +17,22 @@ export const ProductPageItem = ({
   image,
   price,
   title,
+  id,
 }: ProductPageItemProps) => {
+  const dispatch = useAppDispatch();
+
+  const { cartList } = useSelector(selectCart);
+
+  const isProductInCart = cartList.some((product) => product.id === id);
+
+  const handleAddToCart = () => {
+    if (isProductInCart) {
+      dispatch(removeFromCart(id));
+    } else {
+      dispatch(addToCart({ image, price, title, id }));
+    }
+  };
+
   return (
     <div className="ProductContainer__details">
       <div className="ProductContainer__img">
@@ -27,7 +47,11 @@ export const ProductPageItem = ({
         </div>
         <div className="ProductContainer__order">
           <span>{price} грн</span>
-          <img src={CartIcon} alt="" />
+          <img
+            onClick={handleAddToCart}
+            src={isProductInCart ? CartAdded : CartIcon}
+            alt=""
+          />
         </div>
       </div>
     </div>

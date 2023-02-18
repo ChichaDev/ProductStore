@@ -9,6 +9,7 @@ import {
 import { fetchAllCategories } from "redux/AsyncFilter/asyncFilterActions";
 import { selectAsyncCategories } from "redux/AsyncFilter/asyncFilterSelector";
 import { useClickOutside } from "hooks/useClickOutside";
+import LoaderProductList from "components/ProductList/LoaderProductList/LoaderProductList";
 
 export const Filter = () => {
   const filterRef = useRef<HTMLDivElement | null>(null);
@@ -25,7 +26,7 @@ export const Filter = () => {
     dispatch(fetchAllCategories());
   }, []);
 
-  const { filterCategory } = useSelector(selectAsyncCategories);
+  const { filterCategory, status } = useSelector(selectAsyncCategories);
 
   const handleCategory = (item: string) => {
     dispatch(fetchCategoryProduct(item));
@@ -38,23 +39,25 @@ export const Filter = () => {
     setOpenDropdown(false);
     setCurrentCategory("All");
   };
-  return (
-    <div className="Filter" ref={filterRef}>
-      <div className="dropdown">
-        <button onClick={onClickDropdown} className="dropbtn">
-          {currentCategory}
-        </button>
-        {openDropdown && (
-          <div className="dropdown-content show">
-            <span onClick={handleGetAllProducts}>All</span>
-            {filterCategory.map((item) => (
-              <span onClick={() => handleCategory(item)} key={item}>
-                {item}
-              </span>
-            ))}
-          </div>
-        )}
+   
+    return (
+      <div className="Filter" ref={filterRef}>
+        <div className="dropdown">
+          <button onClick={onClickDropdown} className="dropbtn">
+            {currentCategory}
+          </button>
+          {openDropdown && (
+            <div className="dropdown-content show">
+              <span onClick={handleGetAllProducts}>All</span>
+              {filterCategory.map((item) => (
+                <span onClick={() => handleCategory(item)} key={item}>
+                  {item}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
+

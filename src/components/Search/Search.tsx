@@ -2,6 +2,7 @@ import "../Search/Search.css";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "redux/redux-hooks";
 import { searchProductList } from "redux/AsyncProductsList/asyncProductSlice";
+import { Link } from "react-router-dom";
 
 export const Search = () => {
   const dispatch = useAppDispatch();
@@ -18,6 +19,7 @@ export const Search = () => {
   const onClickReset = () => {
     setTextInput("");
   };
+  
   return (
     <form autoComplete="off" className="search" action="">
       <input
